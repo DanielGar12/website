@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="./page.css">
+    </head>
+
+    <body id="loginPage">
+        <div class="loginbox">
+            <h1>Hello</h1>
+            <form id="login">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username" >
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <button id="submitButton" type="submit">Login</button>
+            <div class="question">
+                <p>Not a User? Register <a href="./register.html">here</a></p>
+            </div>
+        </form>
+        </div>
+        <script>
+           document.getElementById("login").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    let inputs = document.querySelectorAll('#login input[type="text"], #login input[type="password"]');
+    let hasErrors = false;
+    let loginData = {};
+
+    inputs.forEach(function(input) {
+        if (input.value.trim() === '') {
+            input.classList.add("input-error");
+            hasErrors = true;
+        } else {
+            input.classList.remove("input-error");
+            loginData[input.name] = input.value.trim();
+        }
+    });
+
+    if (!hasErrors) {
+        fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                alert("Login successful!");
+                window.location.href = "./main.html";
+            } else {
+                alert(data.message || "Invalid username or password.");
+            }
+        })
+        .catch(err => {
+            console.error("Error during login:", err);
+            alert("Server error. Try again later.");
+        });
+    }
+});
+        </script>
+    </body>
+
+</html>
