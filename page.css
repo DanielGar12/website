@@ -285,3 +285,23 @@ footer {
     background-color: #FAF9F8;
     align-items: center;
 }
+.mainJumb {
+    background-image: url("https://travelingcanucks.com/wp-content/uploads/2021/11/things-to-do-in-New-York-City-3.jpeg");
+    height: 600px;
+    width: "100%";
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    font-size: 40px;
+    font-weight: bold;
+}
+.textual {
+    border: 1px solid black;
+    
+}
+.textual h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
