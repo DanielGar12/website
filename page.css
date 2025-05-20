@@ -321,7 +321,35 @@ footer {
 }
 
 .SFjumb {
-    background-image: url("./assets/photos/GGB.heic");
+    background-image: url("./assets/photos/GGB.jpg");
     width: "100%";
     height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    background-position: center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-color: black;
+    
+    
+}
+
+.atlJumb {
+    background-image: url("./assets/photos/STM.jpg");
+    width: "100%";
+    height: 600px;
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
 }
